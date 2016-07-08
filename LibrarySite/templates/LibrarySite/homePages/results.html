@@ -1,0 +1,58 @@
+{% extends 'LibrarySite/homePages/base.html' %}
+
+{% block content %}
+
+        <p align="center">Search results for "{{ q }}" returned {{ bookhits }} books and {{ bloghits }} blogs</p>
+
+        <h1 id="result_header">Books</h1>
+        <div class="panel panel-default panel-table">
+
+        <table width="60%">
+                <table class="table-striped table-bordered table-list" width="65%">
+                  <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Subject</th>
+                        <th>Genre</th>
+                        <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for obj in results %}
+                      {% if obj.description %}
+                          <tr>
+                            <td><img src="{{ MEDIA_URL }}{{obj.image_url}}" height="90px", width="90px" align="left"></td>
+                            <td><a href="{% url 'book_detail' obj.id %}" color="black">{{ obj.title }}</a></td>
+                            <td>{{ obj.author }}</td>
+                            <td>{{ obj.subject }}</td>
+                            <td>{{ obj.genre }}</td>
+                            <td>{{ obj.description }}</td>
+                          </tr>
+                      {% endif %}
+                  {% endfor %}
+                        </tbody>
+                </table>
+        </table>
+
+        <h1 id="result_header">Blogs</h1>
+        <table border="1" width="60%">
+        {% for obj in results %}
+                <!-- blog objects -->
+                {% if obj.created_date %}
+                <tr>
+                    <td>
+                        {{ obj.created_date }}<br>
+                        <a href="{% url 'post_detail' pk=obj.pk %}">{{ obj.title }}</a><br>
+                        {{ obj.text }}
+                    </td>
+                </tr>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+
+
+{% endblock %}

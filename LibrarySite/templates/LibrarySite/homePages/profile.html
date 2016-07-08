@@ -1,0 +1,11 @@
+{% extends 'LibrarySite/homePages/base.html' %}
+
+{% block content %}
+
+<h2>Profile</h2> <br>
+
+    Name: {{ user.first_name }} {{ user.last_name }} <br>
+    Birthday: {{ user.birthday }}<br>
+    Username: {{ user }}
+
+{% endblock %}

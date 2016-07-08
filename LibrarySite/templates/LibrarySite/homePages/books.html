@@ -1,0 +1,71 @@
+{% extends 'LibrarySite/homePages/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <table border="1">
+
+            <div class="col-md-8 col-md-offset-2">
+
+            <div class="panel panel-default panel-table">
+
+              <div>
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">Books</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-body">
+                <table class="table-striped table-bordered table-list" width="65%">
+                  <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Subject</th>
+                        <th>Genre</th>
+                        <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for book in books %}
+                          <tr>
+                            <td><img src="{{ MEDIA_URL }}{{book.image_url}}" height="90px", width="90px" align="left"></td>
+                            <td><a href="{% url 'book_detail' book.id %}" color="black">{{ book.title }}</a></td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.subject }}</td>
+                            <td>{{ book.genre }}</td>
+                            <td>{{ book.description }}</td>
+                          </tr>
+                  {% endfor %}
+                        </tbody>
+                </table>
+
+              </div>
+
+                  <div class="col col-xs-10">
+                  <div class="pagination hidden-xs pull-right">
+
+                      <span class="step-links">
+                    {% if books.has_previous %}
+                        <a href="?page={{ books.previous_page_number }}">previous</a>
+                    {% endif %}
+                </span>
+
+                <span class="current">
+                    Page {{ books.number }} of {{ books.paginator.num_pages }}
+                </span>
+
+                {% if books.has_next %}
+                    <a href="?page={{ books.next_page_number }}">next</a>
+                {% endif %}
+
+            </div>
+                  </div>
+
+            </div>
+            </div>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,197 @@
+html
+{
+  /*background: url(media/background/background12312.png) no-repeat center center fixed; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+      background-attachment:local;
+	  background-color: #f4f4f4;
+}
+/*
+@font-face
+{
+font-family: Bellerose;
+src: url(fonts/Bellerose.ttf);
+}
+
+@font-face
+{
+font-family: Opificio_Bold;
+src: url(fonts/Opificio_Bold.ttf);
+}
+*/
+
+*{margin:0;padding:0;}
+body{
+	font-family: Open sans, Arial, sans-serif
+}
+
+html{
+	background:white;
+}
+
+td a{color:black;}
+a:visited{color:inherit;}
+
+#header{
+    background-color: white;
+	height: 100px;
+	width: 100%;
+	position: fixed;
+}
+
+#header img{
+	margin-left: 43%;
+	float: left;
+}
+
+#nav{
+  	position:fixed;
+	margin-top: 100px;
+  	width:100%;
+  	list-style:none;
+  	background:#03487d;
+  	height:60px;
+}
+
+#socialMedia{
+	position: fixed;
+	float: left;
+	left:80%;
+	display: inline;
+}
+
+#nav li{
+  float:left;
+}
+
+#nav a{
+ text-decoration:none;
+  display:block;
+  padding:10px 10px
+  color:#fff;
+}
+
+#nav li#mini-logo{
+  display:none;
+  font-weight:bold;
+}
+
+#lastnavigation{
+  height:40px;
+}
+
+#lnav{
+    list-style:none;
+    text-decoration:none;
+    width:100%;
+    height:40px;
+    background:#03487d;
+    display:block;
+    position:fixed;
+    bottom:0px;
+    padding-left:46%;
+}
+
+#lnav li{
+  float:left;
+}
+
+
+#lnav li#mini-logo{
+  display:none;
+  font-weight:bold;
+}
+
+p.name {
+  padding:5px;
+  background-color: white
+}
+
+#wrap {
+    margin-left: auto;
+    margin-right: auto;
+   width: 1024px;
+
+}
+
+#bigLogo img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top:5%;
+}
+
+#indexSearch form
+{
+	display: block;
+	text-align: center;
+}
+
+#indexButtons
+{
+	display: block;
+	text-align: center;
+	width: 98%;
+}
+
+#indexButtons a
+{
+	padding-left: 20px;
+}
+
+#heading2{
+  padding:1px;
+  text-align:center;
+  font-size: 500%;
+  color: #9f0001;
+
+}
+
+#heading3{
+  padding:1px;
+  text-align:center;
+  font-size: 150%;
+  color: #9f0001;
+}
+
+
+table, th, td, tr
+{
+margin-right:auto;
+margin-left:auto;
+width:1024;
+border: 1px solid black;
+border-collapse:collapse;
+padding: 15px;
+
+}
+
+
+
+p#wrap{
+font-size: 20px;
+text-align: center;
+}
+
+ul.menubar > li {
+	float: left;
+	display: inline;
+	position: relative;
+	margin: 0px;
+	height: 40px;
+}
+
+.menu-item{
+	display: block;
+	float: none;
+	text-align: center;
+}
+
+li.menu-hover{
+	background-color: #000;
+	color: white;
+	outline: none;
+}
+

@@ -1,0 +1,35 @@
+{% extends 'LibrarySite/homePages/base.html' %}
+
+{% block content %}
+
+    <div class = "book">
+        <img src="{{ MEDIA_URL }}{{book.image_url}}" height="90px", width="90px" align="left">
+
+        <h1>{{ book.title }}</h1>
+        <br>{{ book.author }}
+        <br>{{ book.genre }}
+        <br>{{ book.subject }}<br>
+        <br><p>{{ book.description }}</p>
+    </div>
+
+    <!-- Begin Comments JavaScript Code *taken from a site* -->
+    <script type="text/javascript" async>
+        function ajaxpath_56f038859545d(url)
+        {return window.location.href == '' ? url : url.replace('&s=','&s=' + escape(window.location.href));}
+        (function(){document.write('<div id="fcs_div_56f038859545d"><a title="free comment script" href="http://www.freecommentscript.com">&nbsp;&nbsp;<b>Free HTML User Comments</b>...</a></div>');
+            fcs_56f038859545d=document.createElement('script');
+            fcs_56f038859545d.type="text/javascript";
+            fcs_56f038859545d.src=ajaxpath_56f038859545d((document.location.protocol=="https:"?"https:":"http:")+"//www.freecommentscript.com/GetComments2.php?p=56f038859545d&s=&Size=10#!56f038859545d");
+            setTimeout("document.getElementById('fcs_div_56f038859545d').appendChild(fcs_56f038859545d)",1);})();
+    </script><noscript><div><a href="http://www.freecommentscript.com" title="free html user comment box">Free Comment Script</a></div></noscript>
+    <!-- End Comments JavaScript Code -->
+
+
+    <!-- begin wwww.htmlcommentbox.com -->
+    <!--
+ <div id="HCB_comment_box">Comment Form</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24DyPXto4CbgYtzwVvq.NQl0"+"&opts=16863&num=10&ts=1458590684528");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->
+
+{% endblock %}

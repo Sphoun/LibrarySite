@@ -1,0 +1,50 @@
+<html>
+    {% load staticfiles %}
+    <html lang="en">
+
+    <head>
+        {% block extrahead %}{% endblock %}
+        <script src="{% static "LibrarySite/scripts/searchBar.js" %}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/primary.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/menuBar.css' %}">
+
+        <meta charset="UTF-8">
+        <title>Library Site</title>
+    </head>
+
+<body>
+
+    <div id="bigLogo">
+        <img src="{% static "LibrarySite/media/uwin_logo3.png" %}">
+    </div>
+
+    <div id="indexSearch">
+        <form id="indexSearchBar" method="GET" action="{% url 'search' %}">
+            <input type="text" id="sb" class="searchText" name="q" size="30" maxlength="120" placeholder="Search our website">
+            <input type="submit" value=">" class="searchButton">
+            <a href="{% url 'search' %}"></a>
+        </form>
+    </div>
+
+    <div id="last">
+        <ul id="lnav">
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/facebook.png" %}" height="40"></a></li>
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/twitter.png" %}" height="40"></a></li>
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/email.png" %}" height="40"></a></li>
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/google+.png" %}" height="40"></a></li>
+        </ul>
+    </div>
+
+    <br>
+
+    <div id="indexButtons">
+        <a href="{% url 'bookpage' %}">Books</a>
+        <a href="{% url 'blog:post_list' %}">Blog</a>
+        <a href="{% url 'news' %}">News</a>
+        <a href="{% url 'testPage' %}">Resources</a>
+    </div>
+
+</body>
+
+</html>

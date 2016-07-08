@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html lang="en">
+
+    <head>
+        {% block extrahead %}{% endblock %}
+
+        <script src="{% static "LibrarySite/scripts/searchBar.js" %}" type="text/javascript"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/signin.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/logform.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/tableStyle.css' %}">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/primary.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'LibrarySite/stylesheets/menuBar.css' %}">
+        <meta charset="UTF-8">
+        <title>Library Site</title>
+    </head>
+
+    <!-- Create Header then nav bar sits under
+        uWindsor Yellow - #ffce00
+           Blue for Nav - #03487d
+    -->
+
+    <body>
+        <div id="headerimg">
+            <img src="{% static "LibrarySite/media/uwin_logo.jpg" %}" height="100%">
+            <div id="login">
+                {% if user.is_authenticated %}
+                    <p><a href="/logout/">Logout</a></p>
+                {% else %}
+                    <p><a href="/login/">Login</a></p>
+                {% endif %}
+                    <p><a href="/register/">Register</a></p>
+            </div>
+        </div> <!--End header -->
+
+        <div id="navigation" aria-label="Main menu" tabindex="-1">
+            <ul id="nav" class="menubar root-level" role="menubar">
+                <li>
+                    <a href = "{% url 'index' %}">
+                        <img src="{% static "LibrarySite/media/Logo.jpeg" %}" height="60">
+                    </a>
+                </li>
+
+                <div id="tfheader">
+		            <form id="searchBar" method="GET" action="{% url 'search' %}">
+		                <input type="text" id="sb" class="searchText" name="q" size="21" maxlength="120" placeholder="Search our website">
+                        <input type="submit" value=">" class="searchButton">
+                        <a href="{% url 'search' %}"></a>
+		            </form>
+		        <div class="tfclear"></div>
+	            </div> <!-- end search div -->
+
+                <div class = "dropdown">
+                    <button class="dropbtn">
+                        <a href="{% url 'bookpage' %}">Books</a></button>
+                    <div class="dropdown-content">
+                        <a href="#">JimJam</a>
+                        <a href="#">BimBam</a>
+                        <a href="#">HimHam</a>
+                    </div> <!-- end div dropdown-content -->
+               </div> <!-- end div class dropdown -->
+
+                <div class = "dropdown">
+                    <button class="dropbtn">
+                        <a href="{% url 'blog:post_list' %}">Blogs</a>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">JimJam</a>
+                        <a href="#">BimBam</a>
+                        <a href="#">HimHam</a>
+                    </div> <!-- end div dropdown-content -->
+               </div> <!-- end div class dropdown -->
+
+                <div class = "dropdown">
+                    <button class="dropbtn">
+                        <a href="{% url 'news' %}">News</a>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">SimSam</a>
+                        <a href="#">KimKam</a>
+                        <a href="#">TimTam</a>
+                    </div> <!-- end div dropdown-content -->
+               </div> <!-- end div class dropdown -->
+
+                <div class = "dropdown">
+                    <button class="dropbtn">Resources</button>
+                    <div class="dropdown-content">
+                        <a href="#">Firstdrop</a>
+                        <a href="#">Seconddrop</a>
+                        <a href="#">Thirddrop</a>
+                    </div> <!-- end div dropdown-content -->
+               </div> <!-- end div class dropdown -->
+
+            </ul>
+        </div> <!--End nav -->
+
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br>
+
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <footer id="lastnavigation">
+        <ul id="lnav">
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/facebook.png" %}" height="40"></a></li>
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/twitter.png" %}" height="40"></a></li>
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/email.png" %}" height="40"></a></li>
+            <li><a href="{% url 'testPage' %}"><img src="{% static "LibrarySite/media/google+.png" %}" height="40"></a></li>
+        </ul>
+    </footer>
+
+    </body>
+</html>
